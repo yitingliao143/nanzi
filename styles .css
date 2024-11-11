@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap'); 
+
+/* 全局樣式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 主要頁面樣式 */
+body {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    background-color: #f5f5f5; /* 淺灰色背景 */
+    padding-top: 50px;
+}
+
+/* 頁眉樣式 */
+header {
+    background-color: #f0e68c; /* 主色：明亮黃色 */
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 導航欄樣式 */
+nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 20px;
+}
+
+.right-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* 導航列的樣式 */
+.right-container ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.right-container ul li {
+    margin-left: 5px;
+    position: relative;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.right-container ul li:first-child {
+    margin-left: 0;
+}
+
+.right-container ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 10px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.right-container ul li a:hover {
+    color: #ffffff; /* 保持白色文字 */
+    background-color: #f9a825; /* 懸停效果的柔和黃色 */
+    transform: translateY(-2px);
+}
+
+/* 下拉按鈕樣式 */
+.dropbtn {
+    background-color: #f0e68c; /* 主色：明亮黃色 */
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.dropbtn:hover {
+    background-color: #f9a825; /* 懸停效果的柔和黃色 */
+    transform: scale(1.05);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 3px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-content a {
+    color: #000000;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* 淺灰色 */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(10px);
+}
+
+/* 標誌樣式 */
+.logo h1 a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.logo h1 a:hover {
+    color: #f9a825; /* 懸停效果的柔和黃色 */
+}
+
+/* 搜索框和按鈕樣式 */
+.search-container form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.search-container input[type="text"] {
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 250px;
+    margin-right: 5px;
+}
+
+.search-container button {
+    padding: 10px;
+    background-color: #f9a825; /* 主色：柔和黃色 */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.search-container button:hover {
+    background-color: #f57f17; /* 懸停效果的深橙色 */
+    transform: scale(1.02);
+}
+
+/* 主要內容區域樣式 */
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 100px); /* 調整高度以排除頁眉 */
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #fafafa; /* 淺灰色背景 */
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* 左右分割樣式 */
+.left-section {
+    flex: 1; /* 左側佔據剩餘空間 */
+    display: flex;
+    flex-direction: column; /* 垂直排列內容 */
+    padding: 10px; /* 內邊距 */
+}
+
+.right-section {
+    flex: 1; /* 右側佔據剩餘空間 */
+    display: flex;
+    flex-direction: column; /* 垂直排列內容 */
+    padding: 20px; /* 內邊距 */
+}
+
+/* 地圖樣式 */
+#TGMap {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #C0C0C0;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+}
+
+.input-group input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+/* 全寬按鈕 */
+.full-width-button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f5b300; /* 主色：柔和黃色 */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.full-width-button:hover {
+    background-color: #e0a800; /* 懸停效果的稍深黃色 */
+}
+
+/* 重設密碼頁面樣式 */
+.reset-password-box {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    margin: 100px auto;
+}
+
+.container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.container h2 {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    color: #f5b300; /* 主色：柔和黃色 */
+    margin-bottom: 20px;
+    border-bottom: none; /* 移除底線 */
+}
+
+.container h2 a {
+    color: #f5b300; /* 主色：柔和黃色 */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.container h2 a:hover {
+    color: #e0a800; /* 懸停效果的稍深黃色 */
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container .input-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.container label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.container input[type="text"],
+.container input[type="password"],
+.container input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #f5b300; /* 主色：柔和黃色 */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.container button:hover {
+    background-color: #e0a800; /* 懸停效果的稍深黃色 */
+    transform: scale(1.02);
+}
+
+/* 登錄頁面樣式 */
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 浮動按鈕 */
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f5b300; /* 主色：柔和黃色 */
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.floating-button:hover {
+    background-color: #e0a800; /* 懸停效果的稍深黃色 */
+    transform: scale(1.1);
+}
