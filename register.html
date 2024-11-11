@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
+    <h2>Register Form</h2>
+    <form action="register.php" method="post">
+        <div>
+            <label>Username</label>
+            <input type="text" name="username" required>
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" name="password" required>
+        </div>
+        <div>
+            <input type="submit" value="Register">
+        </div>
+    </form>
+    <?php
+    if (isset($_GET['message'])) {
+        echo "<p>" . htmlspecialchars($_GET['message']) . "</p>";
+    }
+    ?>
+</body>
+</html>
